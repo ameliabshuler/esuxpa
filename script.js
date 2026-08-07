@@ -17,8 +17,11 @@ if (menuToggle && mainNav) {
 
 navLinks.forEach(link => {
   link.addEventListener('click', event => {
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
     event.preventDefault();
-    const targetId = link.getAttribute('href').slice(1);
+    const targetId = href.slice(1);
     const target = document.getElementById(targetId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
