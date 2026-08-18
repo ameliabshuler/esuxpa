@@ -4,24 +4,52 @@ const navLinks = document.querySelectorAll('.main-nav a');
 const langOptions = document.querySelectorAll('.lang-option');
 const sections = document.querySelectorAll('main section[id]');
 
-function getCurrentSectionId() {
-  const scrollPosition = window.scrollY + 120;
-  let currentId = null;
-  sections.forEach(section => {
-    if (scrollPosition >= section.offsetTop) {
-      currentId = section.id;
-    }
+const LANG_STORAGE_KEY = 'uxpa-lang';
+
+function getTranslation(lang, path) {
+  return path.split('.').reduce((value, key) => (value ? value[key] : undefined), translations[lang]);
+}
+
+function applyLanguage(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const value = getTranslation(lang, el.getAttribute('data-i18n'));
+    if (value !== undefined) el.textContent = value;
   });
-  return currentId;
+  document.title = translations[lang].title;
+  document.documentElement.setAttribute('lang', lang);
+  langOptions.forEach(link => {
+    link.classList.toggle('active', link.dataset.lang === lang);
+  });
+}
+
+function setLanguage(lang) {
+  applyLanguage(lang);
+  localStorage.setItem(LANG_STORAGE_KEY, lang);
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang', lang);
+  history.replaceState(null, '', url);
+}
+
+function initLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  const paramLang = params.get('lang');
+  const storedLang = localStorage.getItem(LANG_STORAGE_KEY);
+  const lang = ['es', 'en'].includes(paramLang)
+    ? paramLang
+    : ['es', 'en'].includes(storedLang)
+      ? storedLang
+      : 'es';
+  setLanguage(lang);
 }
 
 langOptions.forEach(link => {
-  link.addEventListener('click', () => {
-    const base = link.getAttribute('href').split('#')[0];
-    const currentId = getCurrentSectionId();
-    link.setAttribute('href', currentId ? `${base}#${currentId}` : base);
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    setLanguage(link.dataset.lang);
   });
 });
+
+initLanguage();
 
 function closeMenu() {
   if (!mainNav || !menuToggle) return;

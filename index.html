@@ -24,19 +24,19 @@
 <body>
   <header class="page-header">
     <div class="topbar container">
-      <a class="brand" href="https://esuxpa.org/" aria-label="Home">
+      <a class="brand" href="index.html" aria-label="Home">
         <img src="home.svg" alt="Home" class="home-icon" />
       </a>
       <div class="nav-actions">
         <nav class="main-nav" id="primary-nav">
-          <a href="#about">Sobre Nosotros</a>
-          <a href="#follow">Síguenos</a>
-          <a href="#events">Eventos</a>
-          <a href="https://forms.gle/S2C4UqZZ8qvi7Bgd6" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+          <a href="#about" data-i18n="nav.about">Sobre Nosotros</a>
+          <a href="#follow" data-i18n="nav.follow">Síguenos</a>
+          <a href="#events" data-i18n="nav.events">Eventos</a>
+          <a href="https://forms.gle/S2C4UqZZ8qvi7Bgd6" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Contáctanos</a>
         </nav>
         <div class="lang-toggle" aria-label="Language toggle">
-          <a class="lang-option active" href="index.html">ES</a>
-          <a class="lang-option" href="index-en.html">EN</a>
+          <a class="lang-option active" href="?lang=es" data-lang="es">ES</a>
+          <a class="lang-option" href="?lang=en" data-lang="en">EN</a>
         </div>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
           <span></span>
@@ -50,44 +50,44 @@
   <main>
     <section id="home" class="hero">
       <div class="hero-content container">
-        <p class="eyebrow">Somos</p>
-        <h1>UXPA España</h1>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Somos</p>
+        <h1 data-i18n="hero.heading">UXPA España</h1>
       </div>
       <div class="hero-decor hero-decor-left"></div>
       <div class="hero-decor home-decor-right-1"></div>
       <div class="hero-decor home-decor-right-2"></div>
     </section>
 
-    <section id="about" class="section abou first">
-      <div class="container section-intro">
-        <h2>Sobre Nosotros</h2>
-        <p>UXPA Internacional impulsa el avance de la experiencia de usuario abogando por estándares de la industria, promoviendo el diseño centrado en el ser humano y empoderando a los profesionales a través de la educación y la comunidad. En adición a la conferencia anual de UXPA International, organizan webinars mensuales en línea en inglés, publican un boletín mensual, tienen un tablón de empleo y un programa de mentoría. <a href="https://www.uxpa.org/" target="_blank" rel="noopener noreferrer">Más información aquí.</a></p>
+    <section id="about" class="section about">
+      <div class="container section-intro first">
+        <h2 data-i18n="about.heading">Sobre Nosotros</h2>
+        <p><span data-i18n="about.introText">UXPA Internacional impulsa el avance de la experiencia de usuario abogando por estándares de la industria, promoviendo el diseño centrado en el ser humano y empoderando a los profesionales a través de la educación y la comunidad. En adición a la conferencia anual de UXPA International, organizan webinars mensuales en línea en inglés, publican un boletín mensual, tienen un tablón de empleo y un programa de mentoría.</span> <a href="https://www.uxpa.org/" target="_blank" rel="noopener noreferrer" data-i18n="about.introLink">Más información aquí.</a></p>
       </div>
 
       <div class="stats-grid container">
         <article class="stat-card">
           <span class="stat-number">1991</span>
-          <p>Fundada</p>
+          <p data-i18n="about.stats.founded">Fundada</p>
           <span class="accent-divider"></span>
         </article>
         <article class="stat-card">
           <span class="stat-number">30</span>
-          <p>países</p>
+          <p data-i18n="about.stats.countries">países</p>
           <span class="accent-divider"></span>
         </article>
         <article class="stat-card">
           <span class="stat-number">59</span>
-          <p>Capítulos Locales</p>
+          <p data-i18n="about.stats.chapters">Capítulos Locales</p>
           <span class="accent-divider"></span>
         </article>
         <article class="stat-card">
           <span class="stat-number">2.400+</span>
-          <p>Miembros mundiales</p>
+          <p data-i18n="about.stats.members">Miembros mundiales</p>
           <span class="accent-divider"></span>
         </article>
       </div>
-      <div class="container section-intro"> 
-        <p>
+      <div class="container section-intro">
+        <p data-i18n="about.paragraph2">
           UXPA España es un capítulo local de UXPA Internacional, que tiene como objetivo promover la experiencia de usuario en España a través de eventos, talleres y actividades de networking. Nuestro objetivo es crear una comunidad sólida de profesionales y entusiastas del diseño centrado en el usuario, fomentando el intercambio de conocimientos y mejores prácticas.
         </p>
       </div>
@@ -95,8 +95,8 @@
 
     <section id="follow" class="section follow">
       <div class="container section-intro">
-        <h2>Síguenos</h2>
-        <p>Únete a la comunidad para quedar informado de todos los eventos que vienen. Elige los canales que funcionan mejor para usted.</p>
+        <h2 data-i18n="follow.heading">Síguenos</h2>
+        <p data-i18n="follow.text">Únete a la comunidad para quedar informado de todos los eventos que vienen. Elige los canales que funcionan mejor para usted.</p>
       </div>
       <div class="social-grid container">
         <a class="social-card" href="https://www.linkedin.com/groups/18450003/" aria-label="LinkedIn">
@@ -118,40 +118,40 @@
     </section>
 
     <section id="events" class="section events">
-    <div class="container section-intro">
-        <h2>Próximos eventos</h2>
+      <div class="container section-intro">
+        <h2 data-i18n="events.upcomingHeading">Próximos eventos</h2>
       </div>
       <div class="container">
         <div class="events-list">
           <a class="event-card" href="https://luma.com/v2x5nuk3" target="_blank" rel="noopener noreferrer">
             <img src="assets/event-photos/fallback.avif" alt="Upcoming October Event" class="event-image" />
             <div class="event-content">
-              <p class="event-date">Lunes, 5 de Octubre · 7:00 PM</p>
-              <h3>UXPA España Charla: Alejandra Borcel</h3>
-              <p class="event-meta">Puerta de Innovación, Madrid · Próximo evento</p>
+              <p class="event-date" data-i18n="events.upcoming.date">Lunes, 5 de Octubre · 7:00 PM</p>
+              <h3 data-i18n="events.upcoming.title">UXPA España Charla: Alejandra Borcel</h3>
+              <p class="event-meta" data-i18n="events.upcoming.meta">Puerta de Innovación, Madrid · Próximo evento</p>
             </div>
           </a>
         </div>
       </div>
       <div class="container section-intro">
-        <h2>Eventos Pasados</h2>
+        <h2 data-i18n="events.pastHeading">Eventos Pasados</h2>
       </div>
       <div class="container">
         <div class="events-list">
           <a class="event-card" href="https://luma.com/sww7ekwe" target="_blank" rel="noopener noreferrer">
             <img src="assets/event-photos/june-photo.jpg" alt="Photo of June Speaker" class="event-image" />
             <div class="event-content">
-              <p class="event-date">Lunes, 15 de Junio · 7:00 PM</p>
-              <h3>UXPA España Charla: Claudia Guitérrez</h3>
-              <p class="event-meta">Madrid · Evento pasado</p>
+              <p class="event-date" data-i18n="events.past1.date">Lunes, 15 de Junio · 7:00 PM</p>
+              <h3 data-i18n="events.past1.title">UXPA España Charla: Claudia Guitérrez</h3>
+              <p class="event-meta" data-i18n="events.past1.meta">Madrid · Evento pasado</p>
             </div>
           </a>
           <a class="event-card" href="https://luma.com/m1urawqa" target="_blank" rel="noopener noreferrer">
             <img src="assets/event-photos/may-photo.jpg" alt="Photo of May Event" class="event-image" />
             <div class="event-content">
-              <p class="event-date">Lunes, 11 de Mayo · 6:00 PM</p>
-              <h3>UXPA España Networking</h3>
-              <p class="event-meta">Madrid · Evento pasado</p>
+              <p class="event-date" data-i18n="events.past2.date">Lunes, 11 de Mayo · 6:00 PM</p>
+              <h3 data-i18n="events.past2.title">UXPA España Networking</h3>
+              <p class="event-meta" data-i18n="events.past2.meta">Madrid · Evento pasado</p>
             </div>
           </a>
         </div>
@@ -159,6 +159,7 @@
     </section>
   </main>
 
+  <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
