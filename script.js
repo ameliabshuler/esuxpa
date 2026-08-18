@@ -1,6 +1,27 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 const navLinks = document.querySelectorAll('.main-nav a');
+const langOptions = document.querySelectorAll('.lang-option');
+const sections = document.querySelectorAll('main section[id]');
+
+function getCurrentSectionId() {
+  const scrollPosition = window.scrollY + 120;
+  let currentId = null;
+  sections.forEach(section => {
+    if (scrollPosition >= section.offsetTop) {
+      currentId = section.id;
+    }
+  });
+  return currentId;
+}
+
+langOptions.forEach(link => {
+  link.addEventListener('click', () => {
+    const base = link.getAttribute('href').split('#')[0];
+    const currentId = getCurrentSectionId();
+    link.setAttribute('href', currentId ? `${base}#${currentId}` : base);
+  });
+});
 
 function closeMenu() {
   if (!mainNav || !menuToggle) return;

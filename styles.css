@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 :root {
   color-scheme: light;
   --bg: #ffffff;
@@ -16,9 +20,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   margin: 0;
@@ -185,6 +186,10 @@ img {
   padding: 10rem 0 10rem;
   text-align: center;
   overflow: hidden;
+}
+
+main section[id] {
+  scroll-margin-top: 120px;
 }
 
 .hero-content {
