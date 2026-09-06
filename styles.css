@@ -438,6 +438,26 @@ main section[id] {
   color: var(--muted);
 }
 
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  background: #41B6E6;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(65, 182, 230, 0.35);
+}
+
 @media (max-width: 640px) {
   .topbar {
     flex-direction: row;
@@ -488,6 +508,11 @@ main section[id] {
 
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    aspect-ratio: auto;
+    height: 180px;
   }
 
   .follow .social-grid {

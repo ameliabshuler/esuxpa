@@ -5,6 +5,7 @@ const translations = {
       about: 'Sobre Nosotros',
       follow: 'Síguenos',
       events: 'Eventos',
+      speaker: 'Sé Ponente',
       contact: 'Contáctanos'
     },
     hero: {
@@ -45,6 +46,11 @@ const translations = {
         title: 'UXPA España Networking',
         meta: 'Madrid · Evento pasado'
       }
+    },
+    speaker: {
+      heading: '¿Quieres ser Ponente?',
+      text: 'Siempre estamos buscando ponentes para los próximos eventos. Rellena este formulario y alguien de nuestro equipo se pondrá en contacto contigo en un plazo de dos semanas.',
+      button: 'Rellenar formulario'
     }
   },
   en: {
@@ -53,6 +59,7 @@ const translations = {
       about: 'About Us',
       follow: 'Follow Us',
       events: 'Events',
+      speaker: 'Be a Speaker',
       contact: 'Contact Us'
     },
     hero: {
@@ -93,6 +100,11 @@ const translations = {
         title: 'UXPA Spain Networking',
         meta: 'Madrid · Past event'
       }
+    },
+    speaker: {
+      heading: 'Want to Be a Speaker?',
+      text: 'We are always looking for speakers for upcoming events. Fill out this form and someone from our team will get back to you within two weeks.',
+      button: 'Fill out the form'
     }
   }
 };
