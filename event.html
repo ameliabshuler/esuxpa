@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UXPA España · Evento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #3D5060;
+      --white: #ffffff;
+      --accent: #78BE20;
+      --blue: #41B6E6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: 'Fira Sans', 'Source Sans Pro', system-ui, sans-serif;
+      color: var(--white);
+    }
+
+    body.idle {
+      cursor: none;
+    }
+
+    /* Stage keeps the 1440×1024 slide ratio and scales to fit the screen.
+       --u is one "design pixel" so positions match the original slides. */
+    .stage {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: min(100vw, calc(100vh * 1440 / 1024));
+      aspect-ratio: 1440 / 1024;
+      container-type: inline-size;
+    }
+
+    .slide {
+      --u: calc(100cqw / 1440);
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .logo {
+      position: absolute;
+      left: calc(var(--u) * 68);
+      top: calc(var(--u) * 78);
+      width: calc(var(--u) * 276);
+    }
+
+    .rule {
+      position: absolute;
+      left: calc(var(--u) * 69);
+      right: calc(var(--u) * 80);
+      top: calc(var(--u) * 876);
+      height: calc(var(--u) * 4);
+      background: linear-gradient(90deg, var(--accent) 0%, var(--blue) 70%, rgba(65, 182, 230, 0) 100%);
+    }
+
+    .right-col {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .right-col h2 {
+      margin: 0;
+      font-size: calc(var(--u) * 62);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .right-col h2 span {
+      display: block;
+      font-weight: 400;
+    }
+
+    .qr {
+      display: block;
+      background: var(--white);
+      width: calc(var(--u) * 412);
+      height: calc(var(--u) * 412);
+      image-rendering: pixelated;
+    }
+
+    /* Slide 1: upcoming event */
+    .slide-next .portrait {
+      position: absolute;
+      left: calc(var(--u) * 60);
+      top: calc(var(--u) * 291);
+      width: calc(var(--u) * 461);
+      height: calc(var(--u) * 461);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .slide-next .right-col {
+      left: calc(var(--u) * 818);
+      width: calc(var(--u) * 412);
+      top: calc(var(--u) * 182);
+      gap: calc(var(--u) * 34);
+    }
+
+    .slide-next .right-col h2 {
+      white-space: nowrap;
+    }
+
+    /* Slide 2: socials */
+    .socials {
+      position: absolute;
+      left: calc(var(--u) * 128);
+      top: calc(var(--u) * 422);
+      display: grid;
+      grid-template-columns: repeat(2, calc(var(--u) * 133));
+      gap: calc(var(--u) * 32) calc(var(--u) * 29);
+    }
+
+    .socials img {
+      display: block;
+      width: 100%;
+      /* Icons are dark squares with transparent glyphs: turn them white so the glyph shows the slide background */
+      filter: brightness(0) invert(1);
+    }
+
+    .slide-follow .right-col {
+      left: calc(var(--u) * 844);
+      width: calc(var(--u) * 412);
+      top: calc(var(--u) * 190);
+      gap: calc(var(--u) * 36);
+    }
+
+    /* Slide 3: talk */
+    .slide-talk h2 {
+      position: absolute;
+      left: calc(var(--u) * 70);
+      top: calc(var(--u) * 336);
+      width: calc(var(--u) * 660);
+      margin: 0;
+      font-size: calc(var(--u) * 58);
+      line-height: 1.12;
+      font-weight: 600;
+    }
+
+    .slide-talk .photo {
+      position: absolute;
+      left: calc(var(--u) * 793);
+      top: calc(var(--u) * 175);
+      width: calc(var(--u) * 534);
+      height: calc(var(--u) * 636);
+      border-radius: calc(var(--u) * 30);
+      overflow: hidden;
+    }
+
+    .slide-talk .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .guest {
+      position: absolute;
+      left: calc(var(--u) * 95);
+      top: calc(var(--u) * 476);
+      width: calc(var(--u) * 357);
+      height: calc(var(--u) * 129);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--white);
+      color: var(--bg);
+      font-size: calc(var(--u) * 38);
+      line-height: 1.1;
+    }
+
+    .guest strong {
+      font-weight: 600;
+    }
+
+    /* Progress dots */
+    .dots {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      transition: opacity 0.4s ease;
+    }
+
+    body.idle .dots {
+      opacity: 0;
+    }
+
+    .dots button {
+      width: 0.7rem;
+      height: 0.7rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+    }
+
+    .dots button.active {
+      background: var(--white);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" aria-roledescription="carousel" aria-label="UXPA España">
+
+    <section class="slide slide-next active" aria-roledescription="slide" aria-label="1 de 3">
+      <img class="logo" src="assets/slideshow/logo-white.svg" alt="UXPA España" />
+      <img class="portrait" src="assets/slideshow/gema-gutierrez.jpg" alt="Gema Gutiérrez" />
+      <div class="right-col">
+        <h2>23 de Noviembre: <span>Gema Gutiérrez</span></h2>
+        <img class="qr" src="assets/slideshow/qr-event.png" alt="Código QR para inscribirse al evento del 23 de noviembre" />
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <section class="slide slide-follow" aria-roledescription="slide" aria-label="2 de 3">
+      <img class="logo" src="assets/slideshow/logo-white.svg" alt="UXPA España" />
+      <div class="socials">
+        <img src="assets/socials/luma-brands-solid-1.svg" alt="Luma" />
+        <img src="assets/socials/square-whatsapp-brands-solid 1.svg" alt="WhatsApp" />
+        <img src="assets/socials/square-linkedin-brands-solid 1.svg" alt="LinkedIn" />
+        <img src="assets/socials/square-instagram-brands-solid 1.svg" alt="Instagram" />
+      </div>
+      <div class="right-col">
+        <h2>Síguenos en redes sociales</h2>
+        <img class="qr" src="assets/slideshow/qr-socials.png" alt="Código QR para nuestras redes sociales" />
+      </div>
+      <div class="rule"></div>
+    </section>
+
+    <section class="slide slide-talk" aria-roledescription="slide" aria-label="3 de 3">
+      <img class="logo" src="assets/slideshow/logo-white.svg" alt="UXPA España" />
+      <h2>El investigador cualitativo aumentado: la IA puede analizar, ¿pero es capaz de interpretar y comprender?</h2>
+      <div class="photo">
+        <img src="assets/slideshow/alejandra-borcel.jpg" alt="Alejandra Borcel" />
+        <div class="guest"><strong>Invitada:</strong> Alejandra Borcel</div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+  </main>
+
+  <nav class="dots" aria-label="Diapositivas"></nav>
+
+  <script>
+    const SLIDE_DURATION = 10000;
+    const IDLE_DELAY = 2500;
+
+    const slides = document.querySelectorAll('.slide');
+    const dotsNav = document.querySelector('.dots');
+    let current = 0;
+    let timer;
+    let idleTimer;
+
+    const dots = Array.from(slides, (_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Diapositiva ${i + 1}`);
+      dot.addEventListener('click', event => {
+        event.stopPropagation();
+        show(i);
+      });
+      dotsNav.appendChild(dot);
+      return dot;
+    });
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+      clearTimeout(timer);
+      timer = setTimeout(() => show(current + 1), SLIDE_DURATION);
+    }
+
+    function toggleFullscreen() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen?.();
+      }
+    }
+
+    document.addEventListener('keydown', event => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) show(current + 1);
+      if (['ArrowLeft', 'PageUp'].includes(event.key)) show(current - 1);
+      if (event.key === 'f' || event.key === 'F') toggleFullscreen();
+    });
+
+    document.addEventListener('click', () => show(current + 1));
+
+    // Hide cursor and dots while the screen is untouched
+    document.addEventListener('mousemove', () => {
+      document.body.classList.remove('idle');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => document.body.classList.add('idle'), IDLE_DELAY);
+    });
+
+    show(0);
+    idleTimer = setTimeout(() => document.body.classList.add('idle'), IDLE_DELAY);
+  </script>
+</body>
+</html>
