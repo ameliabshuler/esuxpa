@@ -34,7 +34,7 @@ const translations = {
       upcoming: {
         date: 'Lunes, 23 de Noviembre · 7:00 PM',
         title: 'Creando agentes de IA éticos con Claude Code',
-        meta: 'Puerta Innovación, Madrid · Claudia Guitérrez · Próximo evento'
+        meta: 'Puerta Innovación, Madrid · Gema Gutiérrez · Próximo evento'
       },
       past1: {
         date: 'Lunes, 5 de Octubre · 7:00 PM',
@@ -44,7 +44,7 @@ const translations = {
       past2: {
         date: 'Lunes, 15 de Junio · 7:00 PM',
         title: 'Diseña tu Carrera en Tiempos de Cambio',
-        meta: 'Madrid · Claudia Guitérrez · Evento pasado'
+        meta: 'Madrid · Claudia Gutiérrez · Evento pasado'
       },
       past3: {
         date: 'Lunes, 11 de Mayo · 6:00 PM',
@@ -93,7 +93,7 @@ const translations = {
       upcoming: {
         date: 'Monday, November 23 · 7:00 PM',
         title: 'Building Ethical AI Agents with Claude Code',
-        meta: 'Puerta Innovación, Madrid · Claudia Guitérrez · Upcoming event'
+        meta: 'Puerta Innovación, Madrid · Gema Gutiérrez · Upcoming event'
       },
       past1: {
         date: 'October 5 · 7:00 PM',
@@ -103,7 +103,7 @@ const translations = {
       past2: {
         date: 'June 15 · 7:00 PM',
         title: 'Design Your Career in Times of Change',
-        meta: 'Madrid · Claudia Guitérrez · Past event'
+        meta: 'Madrid · Claudia Gutiérrez · Past event'
       },
       past3: {
         date: 'May 11 · 6:00 PM',
