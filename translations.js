@@ -32,16 +32,21 @@ const translations = {
       upcomingHeading: 'Próximos eventos',
       pastHeading: 'Eventos Pasados',
       upcoming: {
-        date: 'Lunes, 5 de Octubre · 7:00 PM',
-        title: 'UXPA España Charla: Alejandra Borcel',
-        meta: 'Puerta de Innovación, Madrid · Próximo evento'
+        date: 'Lunes, 23 de Noviembre · 7:00 PM',
+        title: 'Creando agentes de IA éticos con Claude Code',
+        meta: 'Puerta Innovación, Madrid · Claudia Guitérrez · Próximo evento'
       },
       past1: {
-        date: 'Lunes, 15 de Junio · 7:00 PM',
-        title: 'UXPA España Charla: Claudia Guitérrez',
-        meta: 'Madrid · Evento pasado'
+        date: 'Lunes, 5 de Octubre · 7:00 PM',
+        title: 'El investigador cualitativo aumentado: la IA puede analizar, ¿pero es capaz de interpretar y comprender?',
+        meta: 'Puerta Innovación, Madrid · Alejandra Borcel · Evento pasado'
       },
       past2: {
+        date: 'Lunes, 15 de Junio · 7:00 PM',
+        title: 'Diseña tu Carrera en Tiempos de Cambio',
+        meta: 'Madrid · Claudia Guitérrez · Evento pasado'
+      },
+      past3: {
         date: 'Lunes, 11 de Mayo · 6:00 PM',
         title: 'UXPA España Networking',
         meta: 'Madrid · Evento pasado'
@@ -86,16 +91,21 @@ const translations = {
       upcomingHeading: 'Upcoming Events',
       pastHeading: 'Past Events',
       upcoming: {
-        date: 'Monday, October 5th · 7:00 PM',
-        title: 'October Talk: Alejandra Borcel',
-        meta: 'Puerta de Innovación, Madrid · Upcoming event'
+        date: 'Monday, November 23 · 7:00 PM',
+        title: 'Building Ethical AI Agents with Claude Code',
+        meta: 'Puerta Innovación, Madrid · Claudia Guitérrez · Upcoming event'
       },
       past1: {
-        date: 'June 15 · 7:00 PM',
-        title: 'UXPA Spain Talk: Claudia Guitérrez',
-        meta: 'Madrid · Past event'
+        date: 'October 5 · 7:00 PM',
+        title: 'The Augmented Qualitative Researcher: AI Can Analyze, but Can It Interpret and Understand?',
+        meta: 'Puerta Innovación, Madrid · Alejandra Borcel · Past event'
       },
       past2: {
+        date: 'June 15 · 7:00 PM',
+        title: 'Design Your Career in Times of Change',
+        meta: 'Madrid · Claudia Guitérrez · Past event'
+      },
+      past3: {
         date: 'May 11 · 6:00 PM',
         title: 'UXPA Spain Networking',
         meta: 'Madrid · Past event'
